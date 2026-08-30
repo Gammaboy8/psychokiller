@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
-import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, CONTACT_EMAIL } from '@/lib/env';
+import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, WHATSAPP_URL, CONTACT_EMAIL } from '@/lib/env';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with PSYCHOKILLER via Discord, Telegram, X or email.',
+  description: 'Get in touch with PSYCHOKILLER via Telegram, WhatsApp, Discord, X or email.',
 };
 
 export default function ContactPage() {
   const channels = [
-    { label: 'Discord', href: DISCORD_URL, hint: 'Fastest response — join the server' },
-    { label: 'Telegram', href: TELEGRAM_URL, hint: 'Direct message' },
+    { label: 'Telegram', href: TELEGRAM_URL, hint: 'Fastest response — direct message' },
+    { label: 'WhatsApp', href: WHATSAPP_URL, hint: 'Chat directly' },
+    { label: 'Discord', href: DISCORD_URL, hint: 'Join the server' },
     { label: 'X / Twitter', href: TWITTER_URL, hint: 'DMs open' },
     { label: 'Email', href: CONTACT_EMAIL ? `mailto:${CONTACT_EMAIL}` : '', hint: CONTACT_EMAIL },
   ].filter((c) => c.href);

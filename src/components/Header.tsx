@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Logo } from './Brand';
-import { DISCORD_URL, TELEGRAM_URL } from '@/lib/env';
+import { DISCORD_URL, TELEGRAM_URL, WHATSAPP_URL } from '@/lib/env';
 
 const NAV = [
   { href: '/accounts', label: 'Browse Accounts' },
@@ -47,6 +47,11 @@ export function Header() {
               Telegram
             </a>
           )}
+          {WHATSAPP_URL && (
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-ghost btn-sm">
+              WhatsApp
+            </a>
+          )}
         </nav>
 
         <button
@@ -83,6 +88,11 @@ export function Header() {
               {TELEGRAM_URL && (
                 <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn-ghost btn-sm flex-1">
                   Telegram
+                </a>
+              )}
+              {WHATSAPP_URL && (
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-ghost btn-sm flex-1">
+                  WhatsApp
                 </a>
               )}
             </div>
