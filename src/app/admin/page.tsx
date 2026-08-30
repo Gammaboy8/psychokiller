@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { createClient } from '@/lib/supabase/server';
 import { AdminTable } from '@/components/admin/AdminTable';
 import type { Account } from '@/lib/types';

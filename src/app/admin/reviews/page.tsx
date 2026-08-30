@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { createClient } from '@/lib/supabase/server';
 import { ReviewManager } from '@/components/admin/ReviewManager';
 import type { Review } from '@/lib/types';

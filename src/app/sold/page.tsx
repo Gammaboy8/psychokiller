@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import { getSoldAccounts } from '@/lib/queries';
 import { AccountCard } from '@/components/AccountCard';

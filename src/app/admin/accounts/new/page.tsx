@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { AccountForm } from '@/components/admin/AccountForm';
 
 export const dynamic = 'force-dynamic';

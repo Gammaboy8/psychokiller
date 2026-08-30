@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import { getPublicAccounts, type AccountFilters } from '@/lib/queries';
 import { AccountCard } from '@/components/AccountCard';

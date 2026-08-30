@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import { getPublishedReviews } from '@/lib/queries';
 import { EmptyState } from '@/components/EmptyState';

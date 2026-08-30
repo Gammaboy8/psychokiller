@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/env';
 import { getAllPublishedSlugs } from '@/lib/queries';
