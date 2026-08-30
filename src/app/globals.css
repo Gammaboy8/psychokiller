@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 text-gray-100 antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 50% -10%, rgba(224, 58, 58, 0.08), transparent 60%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(224, 58, 58, 0.35);
+}
+
+/* thin dark scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0f1114; }
+::-webkit-scrollbar-thumb { background: #2e343d; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4048; }
+
+@layer components {
+  .container-px { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5
+           text-sm font-semibold transition-colors focus:outline-none
+           focus-visible:ring-2 focus-visible:ring-crimson-500/60 disabled:opacity-50;
+  }
+  .btn-primary { @apply btn bg-crimson-600 text-white hover:bg-crimson-500; }
+  .btn-ghost { @apply btn border border-ink-600 text-gray-200 hover:bg-ink-800; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+
+  .card {
+    @apply rounded-xl border border-ink-700/70 bg-ink-850 shadow-card;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-ink-600 bg-ink-900 px-3 py-2 text-sm
+           text-gray-100 placeholder:text-muted focus:border-crimson-500
+           focus:outline-none focus:ring-1 focus:ring-crimson-500/50;
+  }
+  .label { @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-muted; }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .badge-available { @apply badge bg-emerald-500/15 text-emerald-300; }
+  .badge-reserved { @apply badge bg-amber-500/15 text-amber-300; }
+  .badge-sold { @apply badge bg-crimson-600/20 text-crimson-400; }
+  .badge-featured { @apply badge bg-crimson-500/15 text-crimson-300; }
+
+  .stat-chip {
+    @apply flex flex-col rounded-lg border border-ink-700/60 bg-ink-900/60 px-3 py-2;
+  }
+}
