@@ -22,6 +22,86 @@ body {
   background: rgba(224, 58, 58, 0.35);
 }
 
+/* ---- Ambient background layers ---- */
+.bg-aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+.bg-aurora-a {
+  width: 55vw;
+  height: 55vw;
+  top: -18%;
+  left: -12%;
+  background: radial-gradient(circle at 40% 40%, rgba(224, 58, 58, 0.16), transparent 65%);
+  animation: aurora-a 26s ease-in-out infinite;
+}
+.bg-aurora-b {
+  width: 45vw;
+  height: 45vw;
+  bottom: -15%;
+  right: -10%;
+  background: radial-gradient(circle at 60% 60%, rgba(155, 27, 27, 0.18), transparent 65%);
+  animation: aurora-b 32s ease-in-out infinite;
+}
+.bg-aurora-c {
+  width: 35vw;
+  height: 35vw;
+  top: 35%;
+  left: 40%;
+  background: radial-gradient(circle at 50% 50%, rgba(120, 40, 120, 0.10), transparent 65%);
+  animation: aurora-c 38s ease-in-out infinite;
+}
+@keyframes aurora-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(6vw, 4vh) scale(1.1); }
+  66% { transform: translate(-3vw, 8vh) scale(0.95); }
+}
+@keyframes aurora-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-7vw, -5vh) scale(1.08); }
+  66% { transform: translate(4vw, -9vh) scale(0.92); }
+}
+@keyframes aurora-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-8vw, -6vh) scale(1.15); }
+}
+
+.bg-dotgrid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+.ember {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 9999px;
+  background: linear-gradient(to top, #ff4d4d, #ffb3b3);
+  opacity: 0;
+  animation-name: ember-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  box-shadow: 0 0 8px 2px rgba(255, 77, 77, 0.35);
+}
+@keyframes ember-rise {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  8% { opacity: 0.55; }
+  50% { transform: translateY(-55vh) translateX(14px); opacity: 0.35; }
+  100% { transform: translateY(-110vh) translateX(-10px); opacity: 0; }
+}
+
+@keyframes drift-alt {
+  0% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(20px) translateX(-16px) rotate(-10deg) scale(1.05); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+}
+.animate-drift-alt {
+  animation: drift-alt 24s ease-in-out infinite;
+}
+
 /* ---- Scroll reveal ---- */
 .reveal {
   opacity: 0;
