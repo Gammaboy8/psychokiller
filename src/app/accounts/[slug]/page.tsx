@@ -11,6 +11,8 @@ import { Gallery } from '@/components/Gallery';
 import { SharePanel } from '@/components/SharePanel';
 import { StatusBadge } from '@/components/StatusBadge';
 import { ViewTracker } from '@/components/ViewTracker';
+import { RarityBadges } from '@/components/RarityBadge';
+import { CountUp } from '@/components/CountUp';
 
 export const revalidate = 30;
 
@@ -139,10 +141,18 @@ export default async function AccountDetail({
             <div className="mb-3 flex flex-wrap items-center gap-2">
               <StatusBadge status={acc.status} />
               {acc.featured && <span className="badge-featured">Featured</span>}
+              <RarityBadges shundo={acc.shundo_count} hundo={acc.hundo_count} />
             </div>
             <h1 className="font-display text-2xl font-bold uppercase leading-tight text-white">
               {acc.title}
             </h1>
+            <p className="mt-2 flex items-center gap-1.5 text-xs text-muted">
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              {formatNumber(acc.views)} views
+            </p>
             <div className="mt-3 text-3xl font-extrabold text-white">
               {acc.status === 'sold' ? (
                 <span className="text-crimson-400">SOLD</span>
@@ -182,6 +192,30 @@ export default async function AccountDetail({
                 No marketplace link yet — contact us for availability.
               </p>
             )}
+          </div>
+
+          <div className="card p-5">
+            <h2 className="mb-3 font-display text-xl font-bold uppercase text-white">Highlights</h2>
+            <div className="grid grid-cols-3 gap-2 text-center">
+              <div className="stat-chip items-center">
+                <span className="text-2xl font-extrabold text-crimson-400">
+                  <CountUp value={acc.shiny_count} />
+                </span>
+                <span className="text-[11px] uppercase tracking-wide text-muted">Shiny</span>
+              </div>
+              <div className="stat-chip items-center">
+                <span className="text-2xl font-extrabold text-crimson-400">
+                  <CountUp value={acc.hundo_count} />
+                </span>
+                <span className="text-[11px] uppercase tracking-wide text-muted">Hundo</span>
+              </div>
+              <div className="stat-chip items-center">
+                <span className="text-2xl font-extrabold text-crimson-400">
+                  <CountUp value={acc.legendary_count} />
+                </span>
+                <span className="text-[11px] uppercase tracking-wide text-muted">Legendary</span>
+              </div>
+            </div>
           </div>
 
           <div className="card p-5">

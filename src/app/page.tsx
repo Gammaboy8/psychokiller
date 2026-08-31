@@ -27,9 +27,14 @@ export default async function HomePage() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-ink-700/60">
-        <div className="container-px flex flex-col items-center py-20 text-center md:py-28">
+        {/* soft pulsing crimson glow behind the title */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 animate-pulse-glow rounded-full bg-crimson-600/25 blur-[100px]"
+        />
+        <div className="container-px relative flex flex-col items-center py-20 text-center md:py-28">
           <span className="badge-featured mb-5">Premium Pokémon GO Accounts</span>
-          <h1 className="font-display text-5xl font-extrabold uppercase tracking-tight text-white sm:text-6xl md:text-7xl">
+          <h1 className="font-display text-5xl font-extrabold uppercase tracking-tight text-white drop-shadow-[0_0_25px_rgba(224,58,58,0.35)] sm:text-6xl md:text-7xl">
             PSYCHO<span className="text-crimson-500">KILLER</span>
           </h1>
           <p className="mt-4 text-lg font-medium text-gray-300">

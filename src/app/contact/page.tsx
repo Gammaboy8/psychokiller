@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, WHATSAPP_URL, CONTACT_EMAIL } from '@/lib/env';
+import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, WHATSAPP_URL, INSTAGRAM_URL, REDDIT_URL, CONTACT_EMAIL } from '@/lib/env';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -10,6 +10,8 @@ export default function ContactPage() {
   const channels = [
     { label: 'Telegram', href: TELEGRAM_URL, hint: 'Fastest response — direct message' },
     { label: 'WhatsApp', href: WHATSAPP_URL, hint: 'Chat directly' },
+    { label: 'Instagram', href: INSTAGRAM_URL, hint: '@psychokiller_xx' },
+    { label: 'Reddit', href: REDDIT_URL, hint: 'u/psychokiller_xx' },
     { label: 'Discord', href: DISCORD_URL, hint: 'Join the server' },
     { label: 'X / Twitter', href: TWITTER_URL, hint: 'DMs open' },
     { label: 'Email', href: CONTACT_EMAIL ? `mailto:${CONTACT_EMAIL}` : '', hint: CONTACT_EMAIL },

@@ -1,9 +1,37 @@
 import type { Metadata } from 'next';
+import { Faq } from '@/components/Faq';
 
 export const metadata: Metadata = {
   title: 'About',
   description: 'About PSYCHOKILLER — a premium Pokémon GO account marketplace and catalog.',
 };
+
+const FAQS = [
+  {
+    q: 'Is buying through PSYCHOKILLER safe?',
+    a: 'Yes. This website is a catalog only — every purchase is completed on an authorized third-party marketplace (PlayerAuctions, Eldorado, G2G, EpicNPC) that provides escrow, buyer protection and dispute resolution. You are never asked to pay directly through this site.',
+  },
+  {
+    q: 'How does delivery work?',
+    a: 'Once your order is confirmed on the marketplace, account access details are handed over securely through that platform, typically within a few hours. Delivery times and terms are shown on each marketplace listing before you pay.',
+  },
+  {
+    q: 'What payment methods are accepted?',
+    a: 'Payments are handled entirely by the marketplace where the listing is hosted. Supported methods vary by platform but usually include major cards, PayPal, and popular local options. We never collect card or payment details on this website.',
+  },
+  {
+    q: 'Do you store account passwords or personal data?',
+    a: 'No. We never ask for or store account passwords, recovery codes, or 2FA secrets on this site. The catalog contains listing information and screenshots only.',
+  },
+  {
+    q: 'Are the stats and screenshots accurate?',
+    a: 'Every listing is documented with real screenshots and full stats — level, shinies, shundos, hundos, legendaries, rare backgrounds and costumes — so you know exactly what you are getting before you buy.',
+  },
+  {
+    q: 'What if an account is marked as sold?',
+    a: 'Sold listings are kept in the archive for reference. If you liked a sold account, reach out on Telegram or WhatsApp — we regularly add similar inventory and can notify you when something matching comes in.',
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -38,6 +66,13 @@ export default function AboutPage() {
           <li>Dispute resolution handled by the platform</li>
           <li>Secure payment processing</li>
         </ul>
+      </div>
+
+      <div className="mt-12">
+        <h2 className="mb-5 font-display text-2xl font-bold uppercase tracking-wide text-white">
+          Frequently Asked Questions
+        </h2>
+        <Faq items={FAQS} />
       </div>
     </div>
   );

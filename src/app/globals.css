@@ -22,6 +22,98 @@ body {
   background: rgba(224, 58, 58, 0.35);
 }
 
+/* ---- Scroll reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Holographic card tilt + shine ---- */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out;
+}
+.tilt-card .holo-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.14) 45%,
+    rgba(224, 58, 58, 0.18) 50%,
+    rgba(255, 255, 255, 0.14) 55%,
+    transparent 70%
+  );
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+  z-index: 5;
+}
+.tilt-card:hover .holo-shine {
+  opacity: 1;
+}
+
+/* ---- Rarity shimmer badges ---- */
+.badge-shundo {
+  background: linear-gradient(
+    90deg,
+    #ffd700,
+    #ff4d4d,
+    #a855f7,
+    #38bdf8,
+    #ffd700
+  );
+  background-size: 200% auto;
+  color: #0a0b0d;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+.badge-hundo {
+  background: linear-gradient(90deg, #d4af37, #ffe9a8, #d4af37);
+  background-size: 200% auto;
+  color: #3a2a00;
+}
+
+/* ---- Pulsing available dot ---- */
+.status-dot {
+  position: relative;
+  display: inline-block;
+  height: 7px;
+  width: 7px;
+  border-radius: 9999px;
+  background: #34d399;
+}
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #34d399;
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .tilt-card { transform: none !important; }
+}
+
 /* thin dark scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: #0f1114; }
@@ -58,6 +150,8 @@ body {
   .badge-reserved { @apply badge bg-amber-500/15 text-amber-300; }
   .badge-sold { @apply badge bg-crimson-600/20 text-crimson-400; }
   .badge-featured { @apply badge bg-crimson-500/15 text-crimson-300; }
+  .rarity-shundo { @apply badge badge-shundo animate-shimmer font-extrabold uppercase tracking-wide; }
+  .rarity-hundo { @apply badge badge-hundo animate-shimmer font-extrabold uppercase tracking-wide; }
 
   .stat-chip {
     @apply flex flex-col rounded-lg border border-ink-700/60 bg-ink-900/60 px-3 py-2;

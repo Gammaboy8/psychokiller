@@ -4,13 +4,16 @@ import type { ListItem } from '@/lib/queries';
 import { primaryImage } from '@/lib/queries';
 import { formatPrice, formatNumber } from '@/lib/format';
 import { StatusBadge } from './StatusBadge';
+import { TiltCard } from './TiltCard';
+import { RarityBadges } from './RarityBadge';
 
 export function AccountCard({ item }: { item: ListItem }) {
   const img = primaryImage(item);
   return (
+    <TiltCard>
     <Link
       href={`/accounts/${item.slug}`}
-      className="card group flex flex-col overflow-hidden transition-transform hover:-translate-y-0.5 hover:shadow-glow"
+      className="card group flex h-full flex-col overflow-hidden transition-shadow hover:shadow-glow"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink-900">
         {img ? (
@@ -28,6 +31,11 @@ export function AccountCard({ item }: { item: ListItem }) {
           <StatusBadge status={item.status} />
           {item.featured && <span className="badge-featured">Featured</span>}
         </div>
+        <RarityBadges
+          shundo={item.shundo_count}
+          hundo={item.hundo_count}
+          className="absolute bottom-2 left-2"
+        />
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
@@ -57,6 +65,7 @@ export function AccountCard({ item }: { item: ListItem }) {
         </div>
       </div>
     </Link>
+    </TiltCard>
   );
 }
 

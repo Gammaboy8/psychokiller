@@ -37,9 +37,30 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        drift: {
+          '0%': { transform: 'translateY(0) translateX(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-24px) translateX(12px) rotate(8deg)' },
+          '100%': { transform: 'translateY(0) translateX(0) rotate(0deg)' },
+        },
+        twinkle: {
+          '0%, 100%': { opacity: '0.15', transform: 'scale(0.8)' },
+          '50%': { opacity: '0.7', transform: 'scale(1.2)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': { opacity: '0.35', transform: 'scale(1)' },
+          '50%': { opacity: '0.6', transform: 'scale(1.08)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.4s ease-out',
+        drift: 'drift 18s ease-in-out infinite',
+        twinkle: 'twinkle 4s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+        shimmer: 'shimmer 3s linear infinite',
       },
     },
   },

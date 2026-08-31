@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Logo } from './Brand';
-import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, WHATSAPP_URL, CONTACT_EMAIL } from '@/lib/env';
+import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, WHATSAPP_URL, INSTAGRAM_URL, REDDIT_URL, CONTACT_EMAIL } from '@/lib/env';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -32,6 +32,8 @@ export function Footer() {
             {DISCORD_URL && <li><a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">Discord</a></li>}
             {TELEGRAM_URL && <li><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">Telegram</a></li>}
             {WHATSAPP_URL && <li><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp</a></li>}
+            {INSTAGRAM_URL && <li><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">Instagram</a></li>}
+            {REDDIT_URL && <li><a href={REDDIT_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">Reddit</a></li>}
             {TWITTER_URL && <li><a href={TWITTER_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">X / Twitter</a></li>}
             {CONTACT_EMAIL && <li><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">Email</a></li>}
           </ul>

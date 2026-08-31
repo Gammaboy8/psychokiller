@@ -8,5 +8,10 @@ export function StatusBadge({ status }: { status: AccountStatus }) {
       : status === 'reserved'
         ? 'badge-reserved'
         : 'badge-sold';
-  return <span className={cls}>{STATUS_LABELS[status]}</span>;
+  return (
+    <span className={cls}>
+      {status === 'available' && <span className="status-dot mr-0.5" />}
+      {STATUS_LABELS[status]}
+    </span>
+  );
 }

@@ -8,6 +8,8 @@ export const DISCORD_URL = process.env.NEXT_PUBLIC_DISCORD_URL || '';
 export const TELEGRAM_URL = process.env.NEXT_PUBLIC_TELEGRAM_URL || '';
 export const TWITTER_URL = process.env.NEXT_PUBLIC_TWITTER_URL || '';
 export const WHATSAPP_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL || '';
+export const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL || '';
+export const REDDIT_URL = process.env.NEXT_PUBLIC_REDDIT_URL || '';
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || '';
 
 export const SUPABASE_CONFIGURED = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);

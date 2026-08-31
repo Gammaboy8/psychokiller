@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { ListItem } from '@/lib/queries';
 import { AccountCard } from './AccountCard';
+import { Reveal } from './Reveal';
 
 export function SectionRow({
   title,
@@ -13,7 +14,7 @@ export function SectionRow({
 }) {
   if (!items.length) return null;
   return (
-    <section className="container-px py-8">
+    <Reveal as="section" className="container-px py-8">
       <div className="mb-4 flex items-end justify-between">
         <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-white">
           {title}
@@ -29,6 +30,6 @@ export function SectionRow({
           <AccountCard key={item.id} item={item} />
         ))}
       </div>
-    </section>
+    </Reveal>
   );
 }
