@@ -1,7 +1,12 @@
+import type { Metadata } from 'next';
 import { requireAdmin } from '@/lib/admin-guard';
 import { AdminNav } from '@/components/admin/AdminNav';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false, noarchive: true },
+};
 
 export default async function AdminLayout({
   children,
