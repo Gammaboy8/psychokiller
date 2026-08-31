@@ -7,12 +7,12 @@
 // freezes under prefers-reduced-motion via the global media query.
 
 const BALLS = [
-  { top: '10%', left: '6%', size: 110, delay: '0s', dur: '22s', op: 0.07 },
-  { top: '64%', left: '80%', size: 150, delay: '3s', dur: '28s', op: 0.06 },
-  { top: '38%', left: '55%', size: 75, delay: '6s', dur: '24s', op: 0.05 },
-  { top: '80%', left: '14%', size: 105, delay: '2s', dur: '26s', op: 0.06 },
-  { top: '18%', left: '84%', size: 65, delay: '5s', dur: '20s', op: 0.065 },
-  { top: '52%', left: '30%', size: 55, delay: '8s', dur: '23s', op: 0.045 },
+  { top: '10%', left: '6%', size: 110, delay: '0s', dur: '22s', op: 0.13 },
+  { top: '64%', left: '80%', size: 150, delay: '3s', dur: '28s', op: 0.11 },
+  { top: '38%', left: '55%', size: 75, delay: '6s', dur: '24s', op: 0.09 },
+  { top: '80%', left: '14%', size: 105, delay: '2s', dur: '26s', op: 0.11 },
+  { top: '18%', left: '84%', size: 65, delay: '5s', dur: '20s', op: 0.12 },
+  { top: '52%', left: '30%', size: 55, delay: '8s', dur: '23s', op: 0.08 },
 ];
 
 // deterministic positions (avoid hydration mismatch)
