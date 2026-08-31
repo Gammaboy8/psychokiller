@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: 'What payment methods are accepted?',
-    a: 'Payments are handled entirely by the marketplace where the listing is hosted. Supported methods vary by platform but usually include major cards, PayPal, and popular local options. We never collect card or payment details on this website.',
+    a: 'We accept UPI (instant bank transfer, India), Digital Rupee (e₹ — RBI\'s official CBDC) and Binance USDT (crypto, worldwide). Marketplace listings additionally support the payment options of that platform (cards, PayPal, etc.). Payment details are always shared personally on Telegram/WhatsApp — this website never collects payment information.',
   },
   {
     q: 'Do you store account passwords or personal data?',

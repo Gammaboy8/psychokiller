@@ -13,6 +13,7 @@ import { StatusBadge } from '@/components/StatusBadge';
 import { ViewTracker } from '@/components/ViewTracker';
 import { RarityBadges } from '@/components/RarityBadge';
 import { CountUp } from '@/components/CountUp';
+import { PaymentMethods } from '@/components/PaymentMethods';
 
 export const revalidate = 30;
 
@@ -191,6 +192,15 @@ export default async function AccountDetail({
               <p className="mt-5 rounded-lg bg-ink-900 px-3 py-2 text-sm text-muted">
                 No marketplace link yet — contact us for availability.
               </p>
+            )}
+
+            {acc.status !== 'sold' && (
+              <div className="mt-5 border-t border-ink-700/60 pt-4">
+                <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-muted">
+                  We accept
+                </p>
+                <PaymentMethods compact />
+              </div>
             )}
           </div>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, WHATSAPP_URL, INSTAGRAM_URL, REDDIT_URL, CONTACT_EMAIL } from '@/lib/env';
+import { PaymentMethods } from '@/components/PaymentMethods';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -46,6 +47,22 @@ export default function ContactPage() {
             Contact channels will appear here once configured.
           </p>
         )}
+      </div>
+
+      <div className="mt-12">
+        <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-white">
+          Payment Methods
+        </h2>
+        <p className="mt-2 text-sm text-muted">
+          We accept the following payment options — fast, secure and verified before every handover.
+        </p>
+        <div className="mt-5">
+          <PaymentMethods />
+        </div>
+        <p className="mt-4 rounded-lg border border-ink-700/60 bg-ink-900/60 px-4 py-3 text-xs leading-relaxed text-muted">
+          💡 Payment details are shared personally on Telegram or WhatsApp after you pick an
+          account — never pay anyone who contacts you first claiming to be us.
+        </p>
       </div>
     </div>
   );

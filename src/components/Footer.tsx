@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Logo } from './Brand';
+import { PaymentMethods } from './PaymentMethods';
 import { DISCORD_URL, TELEGRAM_URL, TWITTER_URL, WHATSAPP_URL, INSTAGRAM_URL, REDDIT_URL, CONTACT_EMAIL } from '@/lib/env';
 
 export function Footer() {
@@ -13,6 +14,10 @@ export function Footer() {
             Premium Pokémon GO account marketplace &amp; catalog. Browse verified
             listings, then complete your purchase safely on an authorized marketplace.
           </p>
+          <div className="mt-4">
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-muted">We accept</p>
+            <PaymentMethods compact />
+          </div>
         </div>
 
         <div>
