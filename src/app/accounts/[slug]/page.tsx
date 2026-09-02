@@ -14,6 +14,7 @@ import { ViewTracker } from '@/components/ViewTracker';
 import { RarityBadges } from '@/components/RarityBadge';
 import { CountUp } from '@/components/CountUp';
 import { PaymentMethods } from '@/components/PaymentMethods';
+import { ListingContactActions } from '@/components/ListingContactActions';
 
 export const revalidate = 30;
 
@@ -231,6 +232,11 @@ export default async function AccountDetail({
 
         <SharePanel url={url} shareText={shareText} />
       </div>
+      <ListingContactActions
+        accountId={acc.account_id}
+        title={acc.title}
+        listingUrl={url}
+      />
     </div>
   );
 }

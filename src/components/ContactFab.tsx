@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { TELEGRAM_URL, WHATSAPP_URL } from '@/lib/env';
 
 export function ContactFab() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  // Detail pages use listing-specific actions that include the account ID.
+  if (pathname.startsWith('/accounts/')) return null;
   if (!TELEGRAM_URL && !WHATSAPP_URL) return null;
 
   return (

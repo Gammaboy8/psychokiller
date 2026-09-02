@@ -44,11 +44,10 @@ export function AccountCard({ item }: { item: ListItem }) {
           <span className="shrink-0 font-mono text-[11px] uppercase text-muted">{item.account_id}</span>
         </div>
 
-        <div className="grid grid-cols-4 gap-1.5 text-center">
-          <Stat label="Lvl" value={item.level ?? '—'} />
-          <Stat label="Shiny" value={formatNumber(item.shiny_count)} />
-          <Stat label="Shundo" value={formatNumber(item.shundo_count)} />
-          <Stat label="Hundo" value={formatNumber(item.hundo_count)} />
+        <div className="grid grid-cols-3 gap-2 text-center">
+          <Stat label="Level" value={item.level ?? '—'} />
+          <Stat label="Shinies" value={formatNumber(item.shiny_count)} />
+          <Stat label="Legendary" value={formatNumber(item.legendary_count)} />
         </div>
 
         <div className="mt-auto flex items-center justify-between pt-1">
@@ -71,9 +70,9 @@ export function AccountCard({ item }: { item: ListItem }) {
 
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
-    <div className="rounded-md bg-ink-900/70 py-1.5">
-      <div className="text-sm font-bold text-gray-100">{value}</div>
-      <div className="text-[10px] uppercase tracking-wide text-muted">{label}</div>
+    <div className="rounded-lg border border-ink-700/60 bg-ink-900/70 px-1.5 py-2 transition-colors group-hover:border-crimson-500/30">
+      <div className="text-base font-extrabold leading-none text-gray-100">{value}</div>
+      <div className="mt-1 text-[10px] uppercase tracking-wide text-muted">{label}</div>
     </div>
   );
 }

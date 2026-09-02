@@ -154,8 +154,16 @@ git push -u origin main
 From the dashboard table you can inline: mark **Sold/Reserved/Available**,
 toggle **Featured**, toggle **Live/Draft**, **Duplicate**, **Preview**, **Delete**.
 
-Reviews/vouches: **Admin → Reviews** to add real testimonials and
-publish/unpublish them.
+Reviews/vouches: **Admin → Reviews** to add real testimonials. New reviews are
+saved as drafts so you can verify them before publishing:
+
+1. Get the buyer's permission to share their feedback and marketplace name.
+2. Add their display name, platform, rating, review text, and an optional
+   non-sensitive order reference. Never enter passwords, emails, payment data,
+   recovery codes, or other private account details.
+3. Click **Save as Draft**, check the entry in the table, then click
+   **Draft — click to publish** when it is ready. The public review page shows
+   only the final four characters of an order reference.
 
 ---
 
