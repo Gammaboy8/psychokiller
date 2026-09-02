@@ -121,85 +121,100 @@ export default async function AccountDetail({
         <span className="text-gray-300">{acc.account_id}</span>
       </nav>
 
-      <div className="mx-auto flex max-w-5xl flex-col gap-6">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6">
         <Gallery images={images} title={acc.title} />
 
-        <section className="card p-5 sm:p-6">
-          <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-start">
-            <div>
-              <div className="mb-3 flex flex-wrap items-center gap-2">
+        <section className="card overflow-hidden p-5 text-center sm:p-8">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-4 flex flex-wrap justify-center gap-2">
                 <StatusBadge status={acc.status} />
                 {acc.featured && <span className="badge-featured">Featured</span>}
                 <RarityBadges shundo={acc.shundo_count} hundo={acc.hundo_count} />
-              </div>
-              <h1 className="font-display text-2xl font-bold uppercase leading-tight text-white sm:text-3xl">{acc.title}</h1>
-              <p className="mt-2 flex items-center gap-1.5 text-xs text-muted">
+            </div>
+            <h1 className="font-display text-2xl font-bold uppercase leading-tight text-white sm:text-3xl md:text-4xl">
+              {acc.title}
+            </h1>
+            <p className="mt-2 flex items-center justify-center gap-1.5 text-xs text-muted">
                 <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
                 {formatNumber(acc.views)} views
-              </p>
-              {acc.tags?.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {acc.tags.map((t) => <span key={t} className="badge bg-ink-700 text-gray-300">#{t}</span>)}
-                </div>
-              )}
-            </div>
-            <div className="rounded-xl bg-ink-900/80 px-4 py-3 md:min-w-44 md:text-right">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">Price</p>
-              <div className="mt-1 text-3xl font-extrabold text-white">
+            </p>
+            <div className="mt-5 inline-flex flex-col rounded-xl border border-crimson-500/20 bg-ink-900/80 px-7 py-3">
+              <span className="text-[11px] font-semibold uppercase tracking-wide text-muted">Price</span>
+              <span className="mt-1 text-3xl font-extrabold text-white sm:text-4xl">
                 {acc.status === 'sold' ? <span className="text-crimson-400">SOLD</span> : formatPrice(acc.price, acc.currency)}
-              </div>
+              </span>
             </div>
+            {acc.tags?.length > 0 && (
+              <div className="mt-4 flex flex-wrap justify-center gap-1.5">
+                {acc.tags.map((t) => (
+                  <span key={t} className="badge bg-ink-700 text-gray-300">#{t}</span>
+                ))}
+              </div>
+            )}
           </div>
 
           {marketLinks.length > 0 && acc.status !== 'sold' ? (
-            <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+            <div className="mt-6 flex flex-col justify-center gap-2 sm:flex-row sm:flex-wrap">
               {marketLinks.map((m) => (
-                <a key={m.label} href={m.url!} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
+                <a
+                  key={m.label}
+                  href={m.url!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full sm:w-auto"
+                >
                   Buy / View on {m.label}
                 </a>
               ))}
             </div>
           ) : acc.status === 'sold' ? (
-            <p className="mt-5 rounded-lg bg-ink-900 px-3 py-2 text-sm text-muted">This account has been sold and is kept here for reference.</p>
+            <p className="mx-auto mt-6 max-w-md rounded-lg bg-ink-900 px-3 py-2 text-sm text-muted">
+              This account has been sold and is kept here for reference.
+            </p>
           ) : (
-            <p className="mt-5 rounded-lg bg-ink-900 px-3 py-2 text-sm text-muted">No marketplace link yet — contact us for availability.</p>
+            <p className="mx-auto mt-6 max-w-md rounded-lg bg-ink-900 px-3 py-2 text-sm text-muted">
+              No marketplace link yet — contact us for availability.
+            </p>
           )}
 
           {acc.status !== 'sold' && (
-            <div className="mt-5 border-t border-ink-700/60 pt-4">
+            <div className="mt-6 border-t border-ink-700/60 pt-4">
               <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-muted">We accept</p>
-              <PaymentMethods compact />
+              <div className="flex justify-center"><PaymentMethods compact /></div>
             </div>
           )}
         </section>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="card p-5 sm:p-6">
-            <h2 className="mb-3 font-display text-xl font-bold uppercase text-white">Highlights</h2>
+        <section className="card p-5 sm:p-6">
+          <h2 className="mb-4 text-center font-display text-xl font-bold uppercase text-white">Highlights</h2>
+          <div className="mx-auto max-w-2xl">
             <div className="grid grid-cols-3 gap-2 text-center">
               <div className="stat-chip items-center"><span className="text-2xl font-extrabold text-crimson-400"><CountUp value={acc.shiny_count} /></span><span className="text-[11px] uppercase tracking-wide text-muted">Shiny</span></div>
               <div className="stat-chip items-center"><span className="text-2xl font-extrabold text-crimson-400"><CountUp value={acc.hundo_count} /></span><span className="text-[11px] uppercase tracking-wide text-muted">Hundo</span></div>
               <div className="stat-chip items-center"><span className="text-2xl font-extrabold text-crimson-400"><CountUp value={acc.legendary_count} /></span><span className="text-[11px] uppercase tracking-wide text-muted">Legendary</span></div>
             </div>
           </div>
+        </section>
 
-          <div className="card p-5 sm:p-6">
-            <h2 className="mb-3 font-display text-xl font-bold uppercase text-white">Account Info</h2>
-            <div className="grid grid-cols-2 gap-2">
-              {stats.map(([k, v]) => (
-                <div key={k} className="stat-chip"><span className="text-[11px] uppercase tracking-wide text-muted">{k}</span><span className="text-sm font-semibold text-gray-100">{v}</span></div>
-              ))}
-            </div>
+        <section className="card p-5 sm:p-6">
+          <h2 className="mb-4 text-center font-display text-xl font-bold uppercase text-white">Account Info</h2>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+            {stats.map(([k, v]) => (
+              <div key={k} className="stat-chip items-center text-center">
+                <span className="text-[11px] uppercase tracking-wide text-muted">{k}</span>
+                <span className="text-sm font-semibold text-gray-100">{v}</span>
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
 
         {special.length > 0 && (
           <div className="card p-5 sm:p-6">
-            <h2 className="mb-3 font-display text-xl font-bold uppercase text-white">Special</h2>
-            <dl className="grid gap-4 sm:grid-cols-2">
+            <h2 className="mb-4 text-center font-display text-xl font-bold uppercase text-white">Special</h2>
+            <dl className="grid gap-4 text-center sm:grid-cols-2">
               {special.map(([k, v]) => (
                 <div key={k}><dt className="text-[11px] uppercase tracking-wide text-muted">{k}</dt><dd className="mt-1 whitespace-pre-wrap text-sm leading-relaxed text-gray-200">{v}</dd></div>
               ))}
@@ -209,7 +224,7 @@ export default async function AccountDetail({
 
         {acc.description && (
           <div className="card p-5 sm:p-6">
-            <h2 className="mb-3 font-display text-xl font-bold uppercase text-white">Description</h2>
+            <h2 className="mb-3 text-center font-display text-xl font-bold uppercase text-white">Description</h2>
             <div className="whitespace-pre-wrap text-sm leading-relaxed text-gray-300">{acc.description}</div>
           </div>
         )}
