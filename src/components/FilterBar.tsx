@@ -37,7 +37,7 @@ export function FilterBar() {
         <div className="relative flex-1">
           <input
             defaultValue={get('q')}
-            placeholder="Search by ID, title, or description…"
+            placeholder="Search by Account ID, Pokémon, background, shiny or level…"
             className="input pl-9"
             onKeyDown={(e) => {
               if (e.key === 'Enter') push({ q: (e.target as HTMLInputElement).value });

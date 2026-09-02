@@ -3,13 +3,14 @@ import { SUPABASE_CONFIGURED } from '@/lib/env';
 import type { Account, AccountWithImages, Review } from '@/lib/types';
 
 const LIST_SELECT =
-  'id,account_id,title,slug,price,currency,status,featured,tags,level,shiny_count,shundo_count,hundo_count,legendary_count,rare_backgrounds,rare_costumes,created_at,account_images(public_url,is_primary,sort_order)';
+  'id,account_id,title,slug,price,currency,status,featured,tags,level,shiny_count,shundo_count,hundo_count,legendary_count,rare_backgrounds,rare_costumes,views,created_at,updated_at,account_images(public_url,is_primary,sort_order)';
 
 export interface ListItem extends Pick<
   Account,
   'id' | 'account_id' | 'title' | 'slug' | 'price' | 'currency' | 'status' |
   'featured' | 'tags' | 'level' | 'shiny_count' | 'shundo_count' |
-  'hundo_count' | 'legendary_count' | 'rare_backgrounds' | 'rare_costumes' | 'created_at'
+  'hundo_count' | 'legendary_count' | 'rare_backgrounds' | 'rare_costumes' |
+  'views' | 'created_at' | 'updated_at'
 > {
   account_images: { public_url: string; is_primary: boolean; sort_order: number }[];
 }

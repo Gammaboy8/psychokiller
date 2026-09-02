@@ -50,6 +50,15 @@ export function AccountCard({ item }: { item: ListItem }) {
           <Stat label="Legendary" value={formatNumber(item.legendary_count)} />
         </div>
 
+        <div className="grid grid-cols-[auto_auto_minmax(0,1fr)] items-center gap-2 border-t border-ink-700/60 pt-2 text-[11px] text-muted">
+          <span className="inline-flex whitespace-nowrap items-center gap-1" title="Listing views">
+            <EyeIcon />
+            {formatNumber(item.views)} views
+          </span>
+          <span className="whitespace-nowrap" title={`${item.account_images.length} screenshots`}>📷 {item.account_images.length}</span>
+          <span className="truncate text-right" title={updatedLabel(item.updated_at)}>{updatedLabel(item.updated_at)}</span>
+        </div>
+
         <div className="mt-auto flex items-center justify-between pt-1">
           <span className="text-lg font-bold text-white">
             {item.status === 'sold' ? (
@@ -65,6 +74,24 @@ export function AccountCard({ item }: { item: ListItem }) {
       </div>
     </Link>
     </TiltCard>
+  );
+}
+
+function updatedLabel(value: string) {
+  const date = new Date(value);
+  const days = Math.floor((Date.now() - date.getTime()) / 86_400_000);
+  if (!Number.isFinite(days) || days < 0) return 'Updated recently';
+  if (days === 0) return 'Updated today';
+  if (days === 1) return 'Updated 1d ago';
+  return `Updated ${days}d ago`;
+}
+
+function EyeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
   );
 }
 
