@@ -15,6 +15,7 @@ import { RarityBadges } from '@/components/RarityBadge';
 import { CountUp } from '@/components/CountUp';
 import { PaymentMethods } from '@/components/PaymentMethods';
 import { ListingContactActions } from '@/components/ListingContactActions';
+import { CopyAccountId } from '@/components/CopyAccountId';
 
 export const revalidate = 30;
 
@@ -119,7 +120,7 @@ export default async function AccountDetail({
       <nav className="mb-4 text-sm text-muted">
         <Link href="/accounts" className="hover:text-white">Accounts</Link>
         <span className="mx-2">/</span>
-        <span className="text-gray-300">{acc.account_id}</span>
+        <CopyAccountId accountId={acc.account_id} />
       </nav>
 
       <div className="mx-auto flex max-w-6xl flex-col gap-6">
